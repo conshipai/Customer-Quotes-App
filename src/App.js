@@ -6,19 +6,29 @@ import MainDashboard from './components/MainDashboard';
 import ExportDashboard from './components/exports/ExportDashboard';
 import ImportDashboard from './components/imports/ImportDashboard';
 import GroundDashboard from './components/ground/GroundDashboard';
+import ProjectDashboard from './components/project/ProjectDashboard';
 
 // Export Routes
 import ExportAirQuote from './components/exports/air/ExportAirQuote';
 import ExportOceanQuote from './components/exports/ocean/ExportOceanQuote';
+import ExportProjectQuote from './components/exports/project/ExportProjectQuote';
 
 // Import Routes  
 import ImportAirQuote from './components/imports/air/ImportAirQuote';
 import ImportOceanQuote from './components/imports/ocean/ImportOceanQuote';
+import ImportProjectQuote from './components/imports/project/ImportProjectQuote';
 
 // Ground Routes
 import LTLQuote from './components/ground/ltl/LTLQuote';
 import FTLQuote from './components/ground/ftl/FTLQuote';
 import ExpediteQuote from './components/ground/expedite/ExpediteQuote';
+import GroundProjectQuote from './components/ground/project/GroundProjectQuote';
+
+// Project Routes
+import ProjectExportQuote from './components/project/export/ProjectExportQuote';
+import ProjectImportQuote from './components/project/import/ProjectImportQuote';
+import ProjectDomesticQuote from './components/project/domestic/ProjectDomesticQuote';
+import ProjectMultimodalQuote from './components/project/multimodal/ProjectMultimodalQuote';
 
 function App({ shellContext }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -42,17 +52,27 @@ function App({ shellContext }) {
             <Route path="/exports" element={<ExportDashboard />} />
             <Route path="/exports/air/new" element={<ExportAirQuote />} />
             <Route path="/exports/ocean/new" element={<ExportOceanQuote />} />
+            <Route path="/exports/project/new" element={<ExportProjectQuote />} />
             
             {/* Import Routes */}
             <Route path="/imports" element={<ImportDashboard />} />
             <Route path="/imports/air/new" element={<ImportAirQuote />} />
             <Route path="/imports/ocean/new" element={<ImportOceanQuote />} />
+            <Route path="/imports/project/new" element={<ImportProjectQuote />} />
             
             {/* Ground Routes */}
             <Route path="/ground" element={<GroundDashboard />} />
             <Route path="/ground/ltl/new" element={<LTLQuote />} />
             <Route path="/ground/ftl/new" element={<FTLQuote />} />
             <Route path="/ground/expedite/new" element={<ExpediteQuote />} />
+            <Route path="/ground/project/new" element={<GroundProjectQuote />} />
+            
+            {/* Project Cargo Routes (Main Category) */}
+            <Route path="/project" element={<ProjectDashboard />} />
+            <Route path="/project/export/new" element={<ProjectExportQuote />} />
+            <Route path="/project/import/new" element={<ProjectImportQuote />} />
+            <Route path="/project/domestic/new" element={<ProjectDomesticQuote />} />
+            <Route path="/project/multimodal/new" element={<ProjectMultimodalQuote />} />
             
             {/* Quote Management */}
             <Route path="/quotes/:requestId" element={<QuoteDetails />} />
