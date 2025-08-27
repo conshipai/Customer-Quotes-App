@@ -18,7 +18,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.quotes-https.entryPoints=https"
-      - "traefik.http.routers.quotes-https.rule=Host(`quotes.gcc.conship.ai`)"
+      - "traefik.http.routers.quotes-https.rule=Host(`cqp.gcc.conship.ai`)"
       - "traefik.http.routers.quotes-https.tls=true"
       - "traefik.http.services.quotes.loadbalancer.server.port=80"
 
