@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  customer-quote-portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: customer-quote-portal
+    ports:
+      - "3001:80"
+    environment:
+      - NODE_ENV=production
+      - REACT_APP_API_URL=${REACT_APP_API_URL:-https://api.gcc.conship.ai}
+      - REACT_APP_SHELL_URL=${REACT_APP_SHELL_URL:-https://gcc.conship.ai}
+    restart: unless-stopped
+    networks:
+      - conship-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.quotes-https.entryPoints=https"
+      - "traefik.http.routers.quotes-https.rule=Host(`quotes.gcc.conship.ai`)"
+      - "traefik.http.routers.quotes-https.tls=true"
+      - "traefik.http.services.quotes.loadbalancer.server.port=80"
+
+networks:
+  conship-network:
+    external: true
