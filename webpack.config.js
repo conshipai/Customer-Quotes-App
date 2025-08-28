@@ -13,7 +13,7 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].[contenthash].js',
-      publicPath: isProduction ? 'https://quotes.gcc.conship.ai/' : 'http://localhost:3001/',
+      publicPath: isProduction ? 'https://cqp.gcc.conship.ai/' : 'http://localhost:3001/',
       clean: true
     },
 
